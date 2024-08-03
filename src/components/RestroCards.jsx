@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import RestroCard from "./RestroCard";
-
 import Shimer from "../utils/Shimer";
+import useOnlineStatus from '../utils/useOnlineStatus';
 
 const RestroCards = () => {
   const [listOfRestro, setListOfRestro] = useState([]);
@@ -9,7 +9,11 @@ const RestroCards = () => {
   const [showTopRated, setShowTopRated] = useState(false);
   const [searchText, setSearchText] = useState("");
 
+
   const filRest = useRef(null);
+  let onlineStatus = useOnlineStatus();
+
+  
   useEffect(() => {
     fetchData(); // only one time is called when the componenet is rendered initally
   }, []);
@@ -44,6 +48,12 @@ const RestroCards = () => {
     }
     setShowTopRated(!showTopRated);
   };
+
+
+  if (!onlineStatus) {
+    return <h1>You are offline</h1>;
+  }
+
 
   return (
     <>
