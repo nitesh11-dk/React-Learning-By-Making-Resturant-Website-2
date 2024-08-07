@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { createRoot } from 'react-dom/client';
 import App from './components/App'
 import { createBrowserRouter , RouterProvider } from "react-router-dom";
@@ -8,7 +8,9 @@ import RestroCards from "./components/RestroCards";
 import ResturantMenu from "./components/ResturantMenu";
 
 
+const Grocery = lazy(()=>import('./components/Grocery'))
 let createRoutes = createBrowserRouter([
+    
     {
         path:"/" ,
         element:<App/> ,
@@ -20,6 +22,11 @@ element : <RestroCards/>
             {
                 path:"/about" ,
                 element:<About/> , 
+            } ,
+            {
+                path:"/grocery" ,
+                element:<Suspense fallback={<h1>Grocery is loading</h1>}>
+                    <Grocery/></Suspense> , 
             } ,
             {
                 path:"rest/:id" ,

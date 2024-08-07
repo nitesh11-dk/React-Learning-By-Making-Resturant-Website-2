@@ -19,7 +19,7 @@ let onlineStatus = useOnlineStatus();
                   <h2 className="text-xl text-white">Online Status :  {onlineStatus ?   "🟢" : "🔴"}</h2>
                  <div className=" sm:flex  text-amber-50 navElems hidden items-center gap-10">
                      {
-                         ["Home", "About", "ContactUS"].map((elem , idx) => (
+                         ["Home", "About", "ContactUS" , 'Grocery'].map((elem , idx) => (
                              
                              
                              <Link to={elem} key={idx}>{elem}</Link>

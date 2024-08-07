@@ -107,7 +107,17 @@ componentDidMount()
 
 ## LEC- 9 
  
-#### creating a  coustom hook , the soustom should be created innside utils folder , staring the name of the hook from use , becauses then rect understand that is is an hook if we start the name of the coustom hook with 'use'
+#### creating a  coustom hook , the soustom should be created innside utils folder , staring the name of the hook from use , becauses then rect understand that is is an hook if we start the name of the coustom hook with 'use' ,but it is not mandatory to write use , but for good practice , also the library recommended . 
  
 
  #### cosutom hooks are same as componets instead they retrun some usefull stuff that we want , use can use usestate use effect adn all in coustom hook 
+
+ ### we will make smaller bundles of all this files -- and this process is known as chunking  or codeSplitting /Dynamic bundling  / Lazy Loading / Ondeamand Loading / Dynamic  import
+
+ ### by deafult hume yek hii budle milta hai on browser , like sab kuch yusme budle rahta hai , but agar hume alag bundle me banana hai like yaise kuch jo yus component par jayege tab hii vo budle load ho 
+
+  - Yuske liye hum use karte  hai lazy() from named import given by react
+-   const Grocery = lazy(()=>import('path of the component' ))
+-   this error is caused  component suspended while responding to synchronous input , because the Grocery js is not loder yes in the broweser and the react rendering the grocery component 
+-   <Suspense fallback={<h1>Grocery is loading</h1>}>
+                    <Grocery/></Suspense> 
